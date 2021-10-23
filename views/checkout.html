@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Domine:wght@400;500;600;700&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+
+    <script src="https://kit.fontawesome.com/be6263c01e.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="/public/stylesheets/style.css">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <!-- navbar -->
+    <nav class="w-screen flex flex-row mt-16 text-sand-900 justify-between items-center px-16 lg:px-10% absolute z-40 top-0">
+        <div class="flex flex-row items-center justify-center">
+          <img src="/public/images/Single Filled Beans.svg" class="pr-4 h-8 box-border" alt="logo" style="filter : invert(38%) sepia(100%) saturate(389%) hue-rotate(130deg) brightness(90%) contrast(92%)" />
+          <h1 class="size text-3xl font-serif">coffee roaster</h1>
+        </div>
+        <ul class="list-none flex-row gap-10 text-xl hidden sm:flex">
+          <li class="group cursor-pointer">
+              <p>Home</p>
+              <div class="mt-2 w-0 border border-l-0 border-t-0 border-r-0  group-hover:w-full transition-all duration-200"></div>
+          </li>
+          <li class="group cursor-pointer">
+              <p>Shop</p>
+              <div class="mt-2 w-0 border border-l-0 border-t-0 border-r-0  group-hover:w-full transition-all duration-200"></div>
+          </li>
+          <li class="group cursor-pointer">
+              <p>Blog</p>
+              <div class="mt-2 w-0 border border-l-0 border-t-0 border-r-0  group-hover:w-full transition-all duration-200"></div>
+          </li>
+          <li class="group cursor-pointer">
+              <p>Workshop</p>
+              <div class="mt-2 w-0 border border-l-0 border-t-0 border-r-0  group-hover:w-full transition-all duration-200"></div>
+          </li>
+        </ul>
+        <i id="nav-toggle" class="sm:hidden fa fa-bars cursor-pointer"></i>
+      </nav>
+
+
+
+    <section class="h-screen fixed z-40 pointer-events-none">
+        <div id="nav-expand" class="w-screen h-screen relative bg-black text-white transition-all duration-500 ease-linear" style="transform: rotateX(90deg);transform-origin: top center;">
+            <div class="absolute right-16 top-16">
+                <i id="nav-close" class="sm:hidden fa fa-times cursor-pointer"></i>
+            </div>
+            <ul class="list-non h-full  gap-10 text-xl flex flex-col justify-center items-center w-100 h-100 px-auto">
+                <li class="group cursor-pointer">
+                    <p>Home</p>
+                    <div class="mt-2 w-0 border border-l-0 border-t-0 border-r-0  group-hover:w-full transition-all duration-200"></div>
+                </li>
+                <li class="group cursor-pointer">
+                    <p>Shop</p>
+                    <div class="mt-2 w-0 border border-l-0 border-t-0 border-r-0  group-hover:w-full transition-all duration-200"></div>
+                </li>
+                <li class="group cursor-pointer">
+                    <p>Blog</p>
+                    <div class="mt-2 w-0 border border-l-0 border-t-0 border-r-0  group-hover:w-full transition-all duration-200"></div>
+                </li>
+                <li class="group cursor-pointer">
+                    <p>Workshop</p>
+                    <div class="mt-2 w-0 border border-l-0 border-t-0 border-r-0  group-hover:w-full transition-all duration-200"></div>
+                </li>
+              </ul>
+        </div>
+    </section>
+  
+      <section class="relative w-screen bg-cover bg-center" style="background-image: url('/public/images/coffee\ shop.jpg'); height: 50vh;">
+          <div class = "px-16 relative z-10 flex flex-col h-full w-full items-center justify-center text-center text-sand-900">
+              <h1 data-aos="fade-up" class="text-4xl font-serif uppercase">CHECKOUT</h1>
+              <div class="justify-self absolute bottom-16"><i class="fa fa-chevron-down animate-bounce"></i></div>
+          </div>
+          <div class="absolute top-0 bg-black h-full w-full opacity-50"></div>
+      </section>
+
+      <section class="px-16 sm:px-10% py-32 grid grid-cols-2 gap-x-5 gap-y-24 text-coffee-900">
+        <div class="col-span-2"><a href=""><i class="fa fa-chevron-left mr-4"></i>Back</a></div>
+        <div class="col-span-2 lg:col-span-1 grid grid-cols-4 gap-x-5 gap-y-6">
+            <h1 class="col-span-4 text-3xl font-serif text-coffee-900">Address Details</h1>
+            <div class="col-span-2">
+                <label class="text-sm mb-2" for="details[firstName]">First name</label>
+                <input type="text" name="details[firstName]" class="w-full outline-none border rounded-sm border-coffee-700 py-2 px-6 bg-transparent text-sm placeholder-coffee-100 mr-2" placeholder="Coupon Code">
+            </div>
+            <div class="col-span-2">
+                <label class="text-sm mb-2" for="details[lastName]">Last name</label>
+                <input type="text" name="details[lastName]" class="w-full outline-none border rounded-sm border-coffee-700 py-2 px-6 bg-transparent text-sm placeholder-coffee-100 mr-2" placeholder="Last name">
+            </div>
+            <div class="col-span-4 relative">
+                <label class="text-sm mb-2" for="details[country]">Country</label>
+                <div>
+                    <button name="lastName" data-type="select" class="w-full flex justify-between outline-none border rounded-sm border-coffee-700 py-2 px-6 bg-transparent text-sm placeholder-coffee-100 mr-2" placeholder="Last name" >
+                        <span name="details[country]" value="">Indonesia</span>
+                        <span><i class="fa fa-chevron-down"></i></span>
+                    </button>
+
+                    <div data-type="option" class="w-full bg-sand-100 shadow-xl invisible pointer-events-none absolute top-full">
+                        <ul class="py-4 overflow-y-scroll" style="max-height: 200px;">
+                            <li class="px-4 py-2 text-cappucino-700 hover:bg-sand-900 transition cursor-pointer">Test</li>
+                            <div class="mx-4 border border-l-0 border-r-0 border-t-0 border-coffee-100"></div>
+
+                            <li class="px-4 py-2 text-cappucino-700 hover:bg-sand-900 transition cursor-pointer">Test</li>
+                            <div class="mx-4 border border-l-0 border-r-0 border-t-0 border-coffee-100"></div>
+
+                            <li class="px-4 py-2 text-cappucino-700 hover:bg-sand-900 transition cursor-pointer">Test</li>
+                            <div class="mx-4 border border-l-0 border-r-0 border-t-0 border-coffee-100"></div>
+
+                            <li class="px-4 py-2 text-cappucino-700 hover:bg-sand-900 transition cursor-pointer">Test</li>
+                            <div class="mx-4 border border-l-0 border-r-0 border-t-0 border-coffee-100"></div>
+
+                            <li class="px-4 py-2 text-cappucino-700 hover:bg-sand-900 transition cursor-pointer">Test</li>
+                            <div class="mx-4 border border-l-0 border-r-0 border-t-0 border-coffee-100"></div>
+
+                            <li class="px-4 py-2 text-cappucino-700 hover:bg-sand-900 transition cursor-pointer">Test</li>
+                            <div class="mx-4 border border-l-0 border-r-0 border-t-0 border-coffee-100"></div>
+
+                            <li class="px-4 py-2 text-cappucino-700 hover:bg-sand-900 transition cursor-pointer">Test</li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-span-4">
+                <label class="text-sm mb-2" for="details[province]">Province</label>
+                <input type="text" name="details[province]" class="w-full outline-none border rounded-sm border-coffee-700 py-2 px-6 bg-transparent text-sm placeholder-coffee-100 mr-2" placeholder="Last name">
+            </div>
+            <div class="col-span-2 sm:col-span-3">
+                <label class="text-sm mb-2" for="details[town]">Town/City</label>
+                <input type="text" name="details[town" cl]ass="w-full outline-none border rounded-sm border-coffee-700 py-2 px-6 bg-transparent text-sm placeholder-coffee-100 mr-2" placeholder="Last name">
+            </div>
+            <div class="col-span-2 sm:col-span-1">
+                <label class="text-sm mb-2" for="details[postcode]">Postcode</label>
+                <input type="text" name="details[postcode]" class="w-full outline-none border rounded-sm border-coffee-700 py-2 px-6 bg-transparent text-sm placeholder-coffee-100 mr-2" placeholder="Last name">
+            </div>            
+            <div class="col-span-4">
+                <label class="text-sm mb-2" for="details[address]">Address</label>
+                <input type="text" name="details[address"] class="w-full outline-none border rounded-sm border-coffee-700 py-2 px-6 bg-transparent text-sm placeholder-coffee-100 mr-2" placeholder="Last name">
+            </div>
+            <div class="col-span-3">
+                <label class="text-sm mb-2" for="details[phoneNumber]">Phone number</label>
+                <input type="text" name="details[phoneNum]ber" class="w-full outline-none border rounded-sm border-coffee-700 py-2 px-6 bg-transparent text-sm placeholder-coffee-100 mr-2" placeholder="Last name">
+            </div>
+            <div class="col-span-3">
+                <label class="text-sm mb-2" for="details[email]">Email</label>
+                <input type="text" name="details[email" c]lass="w-full outline-none border rounded-sm border-coffee-700 py-2 px-6 bg-transparent text-sm placeholder-coffee-100 mr-2" placeholder="Last name">
+            </div>
+
+        </div>
+        <div class="row-start-2 row-end-3 lg:row-end-3 lg:col-start-2 col-span-2 lg:col-span-1 grid grid-cols-4" style="height : max-content">
+            <div class="col-start-1 lg:col-start-2 col-end-5 grid grid-cols-1 gap-y-2 border border-coffee-900 rounded-sm px-6 pt-8 pb-4 text-coffee-700">
+                <h1 class="text-3xl font-serif mb-4">Cart Summary</h1>
+                <div class="grid grid-cols-3 gap-x-5 text-cappucino-700">
+                    <h4 class="col-span-2">Product</h4>
+                    <h4 class="col-span-1">Total</h4>
+                </div>
+                <div class="w-full border border-l-0 border-t-0 border-r-0 border-coffee-100"></div>
+                <div class="grid grid-cols-3 gap-x-5">
+                    <span class="col-span-2">Green Espresso <span class="text-coffee-900 font-semibold">x1</span></span>
+                    <span class="col-span-1 text-cappucino-700">$ 15.00</span>
+                </div>
+                <div class="w-full border border-l-0 border-t-0 border-r-0 border-coffee-100"></div>
+
+                <div class="grid grid-cols-3 gap-x-5">
+                    <span class="col-span-2">Green Espress <span class="text-coffee-900 font-semibold">x1</span></span>
+                    <span class="col-span-1 text-cappucino-700">$ 15.00</span>
+                </div>
+                <div class="w-full border border-l-0 border-t-0 border-r-0 border-coffee-100"></div>
+
+                <div class="grid grid-cols-3 gap-x-5 font-semibold">
+                    <span class="col-span-2">Subtotal</span>
+                    <span class="col-span-1 text-cappucino-700">$ 41.00</span>
+                </div>
+                <div class="w-full border border-l-0 border-t-0 border-r-0 border-coffee-100"></div>
+
+                <div class="grid grid-cols-3 gap-x-5">
+                    <span class="col-span-2">Extravaganza disc. (-10% Max $5.00)</span>
+                    <span class="col-span-1 text-cappucino-700">-$ 4.10</span>
+                </div>
+                <div class="w-full border border-l-0 border-t-0 border-r-0 border-coffee-100"></div>
+
+                <div class="grid grid-cols-3 gap-x-5 font-semibold">
+                    <span class="col-span-2">Total</span>
+                    <span class="col-span-1 text-cappucino-700">$ 36.90</span>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col-span-2 lg:col-span-1 grid grid-cols-4 gap-x-5 gap-y-6">
+            <h1 class="col-span-4 text-3xl font-serif text-coffee-900">PAYMENT</h1>
+            <div class="col-span-4">
+                <label class="text-sm mb-2" for="card[cardNumber]">Card number</label>
+                <input type="text" name="card[cardNumber]" class="w-full outline-none border rounded-sm border-coffee-700 py-2 px-6 bg-transparent text-sm placeholder-coffee-100 mr-2" placeholder="1234 1234 1234 1234">
+            </div>
+            <div class="col-span-2">
+                <label class="text-sm mb-2" for="card[expiryDate]">Expiry date</label>
+                <input type="text" name="card[expiryDate]" class="w-full outline-none border rounded-sm border-coffee-700 py-2 px-6 bg-transparent text-sm placeholder-coffee-100 mr-2" placeholder="MM/YY">
+            </div>
+            <div class="col-span-2">
+                <label class="text-sm mb-2" for="card[CVV]">CVV</label>
+                <input type="text" name="card[CVV]" class="w-full outline-none border rounded-sm border-coffee-700 py-2 px-6 bg-transparent text-sm placeholder-coffee-100 mr-2" placeholder="123">
+            </div>
+            <div class="col-span-4 relative">
+                <label class="text-sm mb-2" for="card[country]">Country</label>
+                <div>
+                    <button data-type="select" class="w-full flex justify-between outline-none border rounded-sm border-coffee-700 py-2 px-6 bg-transparent text-sm placeholder-coffee-100 mr-2" placeholder="Last name" >
+                        <span name="card[country]" value="">Indonesia</span>
+                        <span><i class="fa fa-chevron-down"></i></span>
+                    </button>
+
+                    <div data-type="option" class="w-full bg-sand-100 shadow-xl invisible pointer-events-none absolute top-full">
+                        <ul class="py-4 overflow-y-scroll" style="max-height: 200px;">
+                            <li class="px-4 py-2 text-cappucino-700 hover:bg-sand-900 transition cursor-pointer">Test</li>
+                            <div class="mx-4 border border-l-0 border-r-0 border-t-0 border-coffee-100"></div>
+                            <li class="px-4 py-2 text-cappucino-700 hover:bg-sand-900 transition cursor-pointer">Test</li>
+                            <div class="mx-4 border border-l-0 border-r-0 border-t-0 border-coffee-100"></div>
+
+                            <li class="px-4 py-2 text-cappucino-700 hover:bg-sand-900 transition cursor-pointer">Test</li>
+                            <div class="mx-4 border border-l-0 border-r-0 border-t-0 border-coffee-100"></div>
+
+                            <li class="px-4 py-2 text-cappucino-700 hover:bg-sand-900 transition cursor-pointer">Test</li>
+                            <div class="mx-4 border border-l-0 border-r-0 border-t-0 border-coffee-100"></div>
+
+                            <li class="px-4 py-2 text-cappucino-700 hover:bg-sand-900 transition cursor-pointer">Test</li>
+                            <div class="mx-4 border border-l-0 border-r-0 border-t-0 border-coffee-100"></div>
+
+                            <li class="px-4 py-2 text-cappucino-700 hover:bg-sand-900 transition cursor-pointer">Test</li>
+                            <div class="mx-4 border border-l-0 border-r-0 border-t-0 border-coffee-100"></div>
+
+
+                            <li class="px-4 py-2 text-cappucino-700 hover:bg-sand-900 transition cursor-pointer">Test</li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-span-2">
+            <button class="bg-coffee-700 rounded-sm py-2 px-6 text-white pointer text-sm hover:bg-cappucino-700 transition duration-200">Place Order</button>
+        </div>
+      </section>
+
+          <!-- FOOTER -->
+        <footer class="py-16 px-16 bg-black z-20 relative">
+            <div class="flex flex-row items-center text-white">
+                <img src="/public/images/Single Filled Beans.svg" class="pr-4 h-8 box-border" alt="logo" style="filter : invert(38%) sepia(100%) saturate(389%) hue-rotate(130deg) brightness(90%) contrast(92%)" />
+                <h1 class="size text-3xl font-serif">coffee roaster</h1>
+            </div>
+        </footer>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+      <script>
+          AOS.init({
+              delay : "200",
+          });
+
+          $("#nav-toggle").click(function () {
+            $("#nav-expand").css("transform", "rotateX(0deg)");
+            $("#nav-expand").parent().removeClass("pointer-events-none");
+            $("body").addClass("overflow-y-hidden");
+            $.map($("#nav-expand li"), function (element, index) {
+                $(element).hide().fadeIn(500 + (500 * index));
+            })
+        })
+
+        $("#nav-close").click(function () {
+            $("#nav-expand").css("transform", "rotateX(90deg)");
+            $("#nav-expand").parent().addClass("pointer-events-none");
+            $("body").removeClass("overflow-y-hidden");
+        })
+
+        //   RECYCLE
+          $("*[data-type='select']").focus(function () {
+            $(this).siblings("*[data-type='option']").removeClass("invisible pointer-events-none")
+          })
+          $("*[data-type='select']").blur(function (event) {
+            $(this).siblings("*[data-type='option']").addClass("invisible").slideDown();
+          })
+          $("*[data-type='option'] li").on("mousedown", function(event) {
+            const selectButton = $(this).parentsUntil("*[data-type='option']").parent().siblings("*[data-type='select']");
+            selectButton.find("span[name='country']").text($(this).text())
+          })
+
+      </script>
+</body>
+</html>

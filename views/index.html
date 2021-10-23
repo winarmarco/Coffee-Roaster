@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Domine:wght@400;500;600;700&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+
+    <script src="https://kit.fontawesome.com/be6263c01e.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="/public/stylesheets/style.css">
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- navbar -->
+    <nav class="w-screen flex flex-row mt-16 text-sand-900 justify-between items-center px-16 lg:px-10% absolute z-10 top-0">
+      <div class="flex flex-row items-center justify-center">
+        <img src="/public/images/Single Filled Beans.svg" class="pr-4 h-8 box-border" alt="logo" style="filter : invert(38%) sepia(100%) saturate(389%) hue-rotate(130deg) brightness(90%) contrast(92%)" />
+        <h1 class="size text-3xl font-serif">coffee roaster</h1>
+      </div>
+      <ul class="list-none flex-row gap-10 text-xl hidden sm:flex">
+        <li class="group cursor-pointer">
+            <p>Home</p>
+            <div class="mt-2 w-0 border border-l-0 border-t-0 border-r-0  group-hover:w-full transition-all duration-200"></div>
+        </li>
+        <li class="group cursor-pointer">
+            <p>Shop</p>
+            <div class="mt-2 w-0 border border-l-0 border-t-0 border-r-0  group-hover:w-full transition-all duration-200"></div>
+        </li>
+        <li class="group cursor-pointer">
+            <p>Blog</p>
+            <div class="mt-2 w-0 border border-l-0 border-t-0 border-r-0  group-hover:w-full transition-all duration-200"></div>
+        </li>
+        <li class="group cursor-pointer">
+            <p>Workshop</p>
+            <div class="mt-2 w-0 border border-l-0 border-t-0 border-r-0  group-hover:w-full transition-all duration-200"></div>
+        </li>
+      </ul>
+      <i id="nav-toggle" class="sm:hidden fa fa-bars cursor-pointer"></i>
+    </nav>
+
+    <section class="h-screen fixed z-40 pointer-events-none">
+        <div id="nav-expand" class="w-screen h-screen relative bg-black text-white transition-all duration-500 ease-linear" style="transform: rotateX(90deg);transform-origin: top center;">
+            <div class="absolute right-16 top-16">
+                <i id="nav-close" class="sm:hidden fa fa-times cursor-pointer"></i>
+            </div>
+            <ul class="list-non h-full  gap-10 text-xl flex flex-col justify-center items-center w-100 h-100 px-auto">
+                <li class="group cursor-pointer">
+                    <p>Home</p>
+                    <div class="mt-2 w-0 border border-l-0 border-t-0 border-r-0  group-hover:w-full transition-all duration-200"></div>
+                </li>
+                <li class="group cursor-pointer">
+                    <p>Shop</p>
+                    <div class="mt-2 w-0 border border-l-0 border-t-0 border-r-0  group-hover:w-full transition-all duration-200"></div>
+                </li>
+                <li class="group cursor-pointer">
+                    <p>Blog</p>
+                    <div class="mt-2 w-0 border border-l-0 border-t-0 border-r-0  group-hover:w-full transition-all duration-200"></div>
+                </li>
+                <li class="group cursor-pointer">
+                    <p>Workshop</p>
+                    <div class="mt-2 w-0 border border-l-0 border-t-0 border-r-0  group-hover:w-full transition-all duration-200"></div>
+                </li>
+              </ul>
+        </div>
+    </section>
+
+    <section class="h-screen bg-cover bg-center relative" style="background-image: url('/public/images/landing.jpg');">
+        <div data-aos="fade-left" duration="1000" class = "px-16 lg:px-10% flex flex-col w-full sm:w-auto h-full absolute right-0 items-center justify-center text-center text-sand-900">
+            <h1 class="text-4xl font-serif">Grab your best<br>coffee here today!</h1>
+            <div class="mt-4 w-1/2 border border-l-0 border-t-0 border-r-0"></div>
+            <p class="mt-2">We serve the greatest<br>coffee in the town</p>
+            <button class="py-2 px-6 uppercase border rounded-sm hover:bg-sand-900 hover:text-coffee-700 transition border-sand-900 mt-6">shop now</button>
+        </div>
+        
+        <div class="absolute bottom-16 text-center w-full animate-bounce text-white"><i class="fa fa-chevron-down"></i></div>
+    </section>
+
+
+    <section class="py-32 px-16 lg:px-10% flex flex-col">
+        <div class="uppercase mb-16 text-center text-4xl font-serif text-coffee-900">our best products</div>
+        <div class=" grid sm:grid-cols-4 grid-cols-2 gap-x-5 gap-y-8">
+            <div data-aos="fade-up" class="group flex flex-col items-center justify-center col-span-1">
+                <div class="group-hover:opacity-50 transition duration-200 text-center">
+                    <img src="/public/images/Danceh.png" class="filter drop-shadow-lg"style="max-width: 250px" alt="">
+                    <h4 class="capitalize font-semibold text-2xl mt-4 text-coffee-900">Danceh</h4>
+                    <p class="text-base font-medium mt-2 text-coffee-400">$ 12.00</p>
+                </div>
+                <div class="absolute hidden text-xs flex-col justify-center items-center group-hover:flex">
+                    <button class="bg-coffee-700 rounded-sm py-2 px-6 text-white pointer hover:bg-cappucino-700 transition duration-200">Add to cart</button>
+                    <button class="py-2 px-6 border rounded-sm min-w-min-sm border-cappucino-700 mt-6 pointer  text-cappucino-700 hover:text-sand-900 hover:bg-cappucino-700 transition duration-200">View more</button>
+                </div>
+            </div>
+            <div data-aos="fade-up" data-aos-duration="1000" class="group flex flex-col items-center justify-center col-span-1">
+                <div class="group-hover:opacity-50 transition duration-200 text-center">
+                    <img src="/public/images/Picollo.png" class="filter drop-shadow-lg"style="max-width: 250px" alt="">
+                    <h4 class="capitalize font-semibold text-2xl mt-4 text-coffee-900">Picollo</h4>
+                    <p class="text-base font-medium mt-2 text-coffee-400">$ 12.00</p>
+                </div>
+                <div class="absolute hidden text-xs flex-col justify-center items-center group-hover:flex">
+                    <button class="bg-coffee-700 rounded-sm py-2 px-6 text-white pointer hover:bg-cappucino-700 transition duration-200">Add to cart</button>
+                    <button class="py-2 px-6 border rounded-sm min-w-min-sm border-cappucino-700 mt-6 pointer  text-cappucino-700 hover:text-sand-900 hover:bg-cappucino-700 transition duration-200">View more</button>
+                </div>
+            </div>
+            <div data-aos="fade-up" data-aos-duration="1500" class="group flex flex-col items-center justify-center col-span-1">
+                <div class="group-hover:opacity-50 transition duration-200 text-center">
+                    <img src="/public/images/Planalto.png" class="filter drop-shadow-lg"style="max-width: 250px" alt="">
+                    <h4 class="capitalize font-semibold text-2xl mt-4 text-coffee-900">Planalto</h4>
+                    <p class="text-base font-medium mt-2 text-coffee-400">$ 13.00</p>
+                </div>
+                <div class="absolute hidden text-xs flex-col justify-center items-center group-hover:flex">
+                    <button class="bg-coffee-700 rounded-sm py-2 px-6 text-white pointer hover:bg-cappucino-700 transition duration-200">Add to cart</button>
+                    <button class="py-2 px-6 border rounded-sm min-w-min-sm border-cappucino-700 mt-6 pointer  text-cappucino-700 hover:text-sand-900 hover:bg-cappucino-700 transition duration-200">View more</button>
+                </div>
+            </div>
+            <div data-aos="fade-up" data-aos-duration="2000" class="group flex flex-col items-center justify-center col-span-1">
+                <div class="group-hover:opacity-50 transition duration-200 text-center">
+                    <img src="/public/images/GreenEspresso.png" class="filter drop-shadow-lg"style="max-width: 250px" alt="">
+                    <h4 class="capitalize font-semibold text-2xl mt-4 text-coffee-900">Green Espresso</h4>
+                    <p class="text-base font-medium mt-2 text-coffee-400">$ 13.00</p>
+                </div>
+                <div class="absolute text-xs hidden flex-col justify-center items-center group-hover:flex">
+                    <button class="bg-coffee-700 rounded-sm py-2 px-6 text-white pointer hover:bg-cappucino-700 transition duration-200">Add to cart</button>
+                    <button class="py-2 px-6 border rounded-sm min-w-min-sm border-cappucino-700 mt-6 pointer  text-cappucino-700 hover:text-sand-900 hover:bg-cappucino-700 transition duration-200">View more</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- coffee blog -->
+    <section class="py-32 px-16 lg:px-10% flex flex-col bg-cappucino-900 text-sand-900">
+        <div class="flex row uppercase mb-16 text-center text-4xl items-center content-center self-center">
+            <div class="w-20 sm:w-36 border border-t-0 border-l-0 border-r-0"></div>
+            <h1 class="uppercase text-center text-4xl mx-4 font-serif">coffee blog</h1>
+            <div class="w-20 sm:w-36 border border-t-0 border-l-0 border-r-0"></div>
+        </div>
+        <div class="grid sm:grid-cols-3 sm:gap-x-5 gap-y-12">
+            <div>
+                <div data-aos="flip-up" data-aos-duration="1000" class="w-full bg-cover bg-center" style="background-image: url('/public/images/latte art.jpg');height: 200px">
+                </div>
+                <div class="mt-10">
+                    <h4 class="text-2xl">Latte Art</h4>
+                    <p class="mt-2 text-sm leading-5 text-sand-700 opacity-50">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit maxime totam praesentium.</p>
+                    <div class="flex flex-row items-center pointer mt-4 text-sand-700 opacity-50 hover:opacity-100 transition cursor-pointer text-sm">
+                        <div class="w-6 border border-t-0 border-l-0 border-r-0 mr-2"></div>
+                        <span>READ MORE</span>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div data-aos="flip-up" data-aos-duration="1500" class="w-full bg-cover bg-center" style="background-image: url('/public/images/coffee\ beverage.jpg');height: 200px">
+                </div>
+                <div class="mt-10">
+                    <h4 class="text-2xl">Coffee Beverage</h4>
+                    <p class="mt-2 text-sm leading-5 text-sand-700 opacity-50">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <div class="flex flex-row items-center pointer mt-4 text-sand-700 opacity-50 hover:opacity-100 transition cursor-pointer text-sm">
+                        <div class="w-6 border border-t-0 border-l-0 border-r-0 mr-2"></div>
+                        <span>READ MORE</span>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div data-aos="flip-up" data-aos-duration="2000" class="w-full bg-cover bg-center" style="background-image: url('/public/images/v60.jpg');height: 200px">
+                </div>
+                <div class="mt-10">
+                    <h4 class="text-2xl">Coffee Filter</h4>
+                    <p class="mt-2 text-sm leading-5 text-sand-700 opacity-50">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit maxime totam praesentium.</p>
+                    <div class="flex flex-row items-center pointer mt-4 text-sand-700 opacity-50 hover:opacity-100 transition cursor-pointer text-sm">
+                        <div class="w-6 border border-t-0 border-l-0 border-r-0 mr-2"></div>
+                        <span>READ MORE</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="grid sm:grid-cols-2 sm:grid-rows-1 grid-rows-2">
+        <div class="relative col-span-1">
+            <div data-aos="fade-right" class="absolute w-3/4 h-full flex flex-col pl-16 lg:pl-10% justify-center z-20 text-white">
+                <h4 class="text-3xl">OUR COFFEE<br>WORKSHOP</h4>
+                <div class="w-40 border border-t-0 border-l-0 border-r-0 mt-4"></div>
+                <p class="mt-2">One month of barista training that will excel your coffee skills</p>
+                <button class="py-2 px-6 uppercase border rounded-sm border-white mt-6 w-max hover:bg-white hover:text-black transition duration-200">view more</button>
+            </div>
+            <div class="absolute w-full h-full bg-black z-10 opacity-70"></div>
+            <div class="absolute w-full h-full bg-center bg-cover" style="background-image: url(/public/images/coffee\ roasting.jpg);"></div>
+        </div>
+        <div class="relative col-span-1" style="max-height: 500px">
+            <div class="absolute w-full h-full bg-black z-10 opacity-20"></div>
+            <img class="object-cover w-full h-full"src="/public/images/Espresso cup.jpg" alt="">
+        </div>
+    </section>
+
+    <!-- OUR TRUSTED BRANDS -->
+    <section class="relative px-16 lg:px-10% py-32 grid sm:grid-cols-2 sm:grid-rows-1 grid-rows-2 gap-x-5 bg-sandy overflow-hidden">
+        <div data-aos="fade-right" class="col-span-1 w-full z-20">
+            <div class="grid grid-cols-2 grid-rows-2 gap-5">
+                <div class="p-4 col-span-1 row-span-1 w-full flex flex-col border border-cappucino-700 border-t-0 border-l-0 border-b-0">
+                    <img src="/public/images/Single Filled Beans.svg" class="object-cover" style = "filter: invert(100%) sepia(5%) saturate(2699%) hue-rotate(311deg) brightness(92%) contrast(91%);" alt="">
+                    <span class="text-center pt-4 text-cappucino-700 font-serif">- OCEAN COFFEE -</span>
+                </div>
+                <div class="p-4 col-span-1 row-span-1 w-full flex flex-col relative items-center justify-center border border-cappucino-700 border-t-0 border-l-0 border-r-0">
+                    <span class="text-center px-3 py-2 bg-cappucino-700 rounded-md text-sand-900 font-serif absolute">- DOUBLE BEANS -</span>
+                </div>
+                <div class="p-4 col-span-1 row-span-1 w-full flex flex-col relative items-center justify-center border border-cappucino-700 border-r-0 border-l-0 border-b-0">
+                    <span class="text-center px-3 py-2 bg-cappucino-700 rounded-md text-sand-900 font-serif absolute">- Kungs-</span>
+                </div>                <div class="p-4 col-span-1 row-span-1 w-full flex flex-col relative items-center justify-center border border-cappucino-700 border-t-0 border-r-0 border-b-0">
+                    <img src="/public/images/Double beans.svg" class="object-cover" style = "filter: invert(100%) sepia(5%) saturate(2699%) hue-rotate(311deg) brightness(92%) contrast(91%);" alt="">
+                    <span class="text-center pt-4 text-cappucino-700 font-serif absolute">KUFII</span>
+                </div>
+            </div>
+        </div>
+        <div data-aos="fade-left" data-aos-duration="1000" class="col-span-1 w-full h-full flex flex-col pl-0 sm:pl-16 sm:items-end sm:text-right text-center items-center justify-center z-20 text-coffee-700">
+            <h4 class="text-3xl uppercase font-serif">our trusted brands</h4>
+            <div class="w-40 border border-t-0 border-l-0 border-r-0 mt-2"></div>
+            <p class="mt-1 sm:w-1/2">One month of barista training that will excel your coffee skills</p>
+        </div>
+        <div class="absolute z-10" style="width: 500px;right: -200px;bottom: -200px;filter: invert(100%) sepia(5%) saturate(2699%) hue-rotate(311deg) brightness(92%) contrast(91%);">
+            <img src="/public/images/Double Outlined Beans.svg" alt="">
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-16 px-16 lg:px-10% bg-black z-20 relative">
+        <div class="flex flex-row items-center text-white">
+            <img src="/public/images/Single Filled Beans.svg" class="pr-4 h-8 box-border" alt="logo" style="filter : invert(38%) sepia(100%) saturate(389%) hue-rotate(130deg) brightness(90%) contrast(92%)" />
+            <h1 class="size text-3xl font-serif">coffee roaster</h1>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            delay : "250",
+        });
+
+        $("#nav-toggle").click(function () {
+            $("#nav-expand").css("transform", "rotateX(0deg)");
+            $("#nav-expand").parent().removeClass("pointer-events-none");
+            $("body").addClass("overflow-y-hidden");
+            $.map($("#nav-expand li"), function (element, index) {
+                $(element).hide().fadeIn(500 + (500 * index));
+            })
+        })
+
+        $("#nav-close").click(function () {
+            $("#nav-expand").css("transform", "rotateX(90deg)");
+            $("#nav-expand").parent().addClass("pointer-events-none");
+            $("body").removeClass("overflow-y-hidden");
+        })
+    </script>
+
+  </body>
+</html>
