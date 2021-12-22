@@ -22,12 +22,12 @@
     
 
     <!-- navbar -->
-    <nav class="w-screen flex flex-row mt-16 text-sand-900 justify-between items-center px-16 lg:px-10% absolute z-40 top-0">
+    <nav class="w-screen flex flex-row mt-16 text-sand-900 justify-between items-center px-8 md:px-16 lg:px-10% absolute z-40 top-0">
         <div class="flex flex-row items-center justify-center">
           <img src="/public/images/Single Filled Beans.svg" class="pr-4 h-8 box-border" alt="logo" style="filter : invert(38%) sepia(100%) saturate(389%) hue-rotate(130deg) brightness(90%) contrast(92%)" />
-          <h1 class="size text-3xl font-serif">coffee roaster</h1>
+          <h1 class="size text-xl xl:text-2xl font-serif">coffee roaster</h1>
         </div>
-        <ul class="list-none flex-row gap-10 text-xl hidden sm:flex">
+        <ul class="list-none flex-row gap-10 xl:text-xl hidden sm:flex">
           <li class="group cursor-pointer">
               <p>Home</p>
               <div class="mt-2 w-0 border border-l-0 border-t-0 border-r-0  group-hover:w-full transition-all duration-200"></div>
@@ -46,7 +46,8 @@
           </li>
         </ul>
         <i id="nav-toggle" class="sm:hidden fa fa-bars cursor-pointer"></i>
-      </nav>
+    </nav>
+  
 
 
 
@@ -104,7 +105,7 @@
                         <span><i class="fa fa-chevron-down"></i></span>
                     </button>
 
-                    <div data-type="option" class="w-full bg-sand-100 shadow-xl invisible pointer-events-none absolute top-full">
+                    <div data-type="option" class="w-full bg-sand-100 shadow-xl invisible pointer-events-none absolute top-full border border-coffee-100">
                         <ul class="py-4 overflow-y-scroll" style="max-height: 200px;">
                             <li class="px-4 py-2 text-cappucino-700 hover:bg-sand-900 transition cursor-pointer">Test</li>
                             <div class="mx-4 border border-l-0 border-r-0 border-t-0 border-coffee-100"></div>
@@ -132,27 +133,27 @@
             </div>
             <div class="col-span-4">
                 <label class="text-sm mb-2" for="details[province]">Province</label>
-                <input type="text" name="details[province]" class="w-full outline-none border rounded-sm border-coffee-700 py-2 px-6 bg-transparent text-sm placeholder-coffee-100 mr-2" placeholder="Last name">
+                <input type="text" id="details[province]" name="details[province]" class="w-full outline-none border rounded-sm border-coffee-700 py-2 px-6 bg-transparent text-sm placeholder-coffee-100 mr-2">
             </div>
             <div class="col-span-2 sm:col-span-3">
                 <label class="text-sm mb-2" for="details[town]">Town/City</label>
-                <input type="text" name="details[town" cl]ass="w-full outline-none border rounded-sm border-coffee-700 py-2 px-6 bg-transparent text-sm placeholder-coffee-100 mr-2" placeholder="Last name">
+                <input type="text" id="details[town]" name="details[province]" class="w-full outline-none border rounded-sm border-coffee-700 py-2 px-6 bg-transparent text-sm placeholder-coffee-100 mr-2">
             </div>
             <div class="col-span-2 sm:col-span-1">
                 <label class="text-sm mb-2" for="details[postcode]">Postcode</label>
-                <input type="text" name="details[postcode]" class="w-full outline-none border rounded-sm border-coffee-700 py-2 px-6 bg-transparent text-sm placeholder-coffee-100 mr-2" placeholder="Last name">
+                <input type="text" id="details[postcode]" name="details[postcode]" class="w-full outline-none border rounded-sm border-coffee-700 py-2 px-6 bg-transparent text-sm placeholder-coffee-100 mr-2">
             </div>            
             <div class="col-span-4">
                 <label class="text-sm mb-2" for="details[address]">Address</label>
-                <input type="text" name="details[address"] class="w-full outline-none border rounded-sm border-coffee-700 py-2 px-6 bg-transparent text-sm placeholder-coffee-100 mr-2" placeholder="Last name">
+                <input type="text" id="details[address]" name="details[address]" class="w-full outline-none border rounded-sm border-coffee-700 py-2 px-6 bg-transparent text-sm placeholder-coffee-100 mr-2">
             </div>
             <div class="col-span-3">
                 <label class="text-sm mb-2" for="details[phoneNumber]">Phone number</label>
-                <input type="text" name="details[phoneNum]ber" class="w-full outline-none border rounded-sm border-coffee-700 py-2 px-6 bg-transparent text-sm placeholder-coffee-100 mr-2" placeholder="Last name">
+                <input type="text" id="details[phoneNumber]" name="details[phoneNumber]" class="w-full outline-none border rounded-sm border-coffee-700 py-2 px-6 bg-transparent text-sm placeholder-coffee-100 mr-2">
             </div>
             <div class="col-span-3">
                 <label class="text-sm mb-2" for="details[email]">Email</label>
-                <input type="text" name="details[email" c]lass="w-full outline-none border rounded-sm border-coffee-700 py-2 px-6 bg-transparent text-sm placeholder-coffee-100 mr-2" placeholder="Last name">
+                <input type="text" id="details[email]" name="details[email]" class="w-full outline-none border rounded-sm border-coffee-700 py-2 px-6 bg-transparent text-sm placeholder-coffee-100 mr-2" placeholder="abcd@yahoo.com">
             </div>
 
         </div>
@@ -218,7 +219,7 @@
                         <span><i class="fa fa-chevron-down"></i></span>
                     </button>
 
-                    <div data-type="option" class="w-full bg-sand-100 shadow-xl invisible pointer-events-none absolute top-full">
+                    <div data-type="option" class="w-full bg-sand-100 shadow-xl invisible pointer-events-none absolute top-full border border-coffee-100">
                         <ul class="py-4 overflow-y-scroll" style="max-height: 200px;">
                             <li class="px-4 py-2 text-cappucino-700 hover:bg-sand-900 transition cursor-pointer">Test</li>
                             <div class="mx-4 border border-l-0 border-r-0 border-t-0 border-coffee-100"></div>
@@ -251,11 +252,11 @@
         </div>
       </section>
 
-          <!-- FOOTER -->
-        <footer class="py-16 px-16 bg-black z-20 relative">
+        <!-- FOOTER -->
+        <footer class="py-16 px-8 md:px-16 lg:px-10% bg-black z-20 relative">
             <div class="flex flex-row items-center text-white">
                 <img src="/public/images/Single Filled Beans.svg" class="pr-4 h-8 box-border" alt="logo" style="filter : invert(38%) sepia(100%) saturate(389%) hue-rotate(130deg) brightness(90%) contrast(92%)" />
-                <h1 class="size text-3xl font-serif">coffee roaster</h1>
+                <h1 class="size text-xl xl:text-2xl font-serif">coffee roaster</h1>
             </div>
         </footer>
         
@@ -282,17 +283,18 @@
             $("body").removeClass("overflow-y-hidden");
         })
 
-        //   RECYCLE
-          $("*[data-type='select']").focus(function () {
+        $("*[data-type='select']").focus(function () {
             $(this).siblings("*[data-type='option']").removeClass("invisible pointer-events-none")
-          })
-          $("*[data-type='select']").blur(function (event) {
+        })
+
+        $("*[data-type='select']").blur(function (event) {
             $(this).siblings("*[data-type='option']").addClass("invisible").slideDown();
-          })
-          $("*[data-type='option'] li").on("mousedown", function(event) {
+        })
+        
+        $("*[data-type='option'] li").on("mousedown", function(event) {
             const selectButton = $(this).parentsUntil("*[data-type='option']").parent().siblings("*[data-type='select']");
             selectButton.find("span[name='country']").text($(this).text())
-          })
+        })
 
       </script>
 </body>

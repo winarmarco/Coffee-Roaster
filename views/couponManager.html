@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Domine:wght@400;500;600;700&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+
+    <script src="https://kit.fontawesome.com/be6263c01e.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="/public/stylesheets/style.css">
+    <title>Document</title>
+</head>
+<body class="relative">
+
+    <div id="modal" class="absolute z-20 flex opacity-0 invisible justify-center transition-all min-w-full">
+        <!-- Overlay -->
+        <div class="w-full h-full min-h-screen bg-black opacity-20 absolute z-30"></div>
+        <!-- Modal content -->
+        <div id="modal-content" class="bg-sand-900 rounded-sm mx-8 my-8 md:mx-16 shadow px-6 pb-16 pt-8 z-40 grid gap-y-2 break-words relative w-full max-w-xl">
+            <div class="flex flex-col">
+                <i id="close-modal" class="fa fa-times self-end cursor-pointer"></i>
+                
+            </div>
+        </div>
+    </div>
+
+    <div id="alert" class="absolute z-20 flex invisible opacity-0 justify-center items-center transition-all min-h-screen min-w-full">
+        <!-- Overlay -->
+        <div class="w-full h-full min-h-screen bg-black opacity-20 absolute z-30"></div>
+        <!-- Modal content -->
+        <div id="alert-content" class="bg-sand-900 rounded-sm mx-8 my-8 md:mx-16 shadow px-6 py-8 z-40 grid gap-y-2 break-words">
+            <div class="flex flex-col items-end">
+                <h4>Are you sure you want to decativate this coupon?</h4>
+
+                <div class="flex flex-row gap-x-2 mt-8">
+                    <button data-action="cancel" class="rounded-sm py-2 px-6 pointer text-sm hover:bg-coffee-100 text-cappucino-700 transition duration-200 flex justify-center">Cancel</button>
+                    <button data-action="continue" class="bg-coffee-700 rounded-sm py-2 px-6 text-white pointer text-sm hover:bg-cappucino-700 hover:text-white transition duration-200 flex justify-center">Continue</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="coupon-modal" class="hidden">
+        <h1 class="text-3xl font-serif text-coffee-700 mb-4">New coupon</h1>
+
+
+        <div class="flex flex-col gap-y-4">
+            <!-- Coupon name -->
+            <div class="w-full">
+                <label class="text-sm mb-2" for="coupon[name]">Coupon name</label>
+                <input type="text" id="coupon[name]"name="coupon[name]" class="w-full outline-none border rounded-sm border-coffee-700 py-2 px-2 bg-transparent text-sm placeholder-coffee-100 mr-2" placeholder="MM/YY">
+            </div>
+            <!-- Coupon Code -->
+            <div class="w-full">
+                <label class="text-sm mb-2" for="coupon[code]">Coupon Code</label>
+                <input type="text" id="coupon[code]" name="coupon[code]" class="w-full outline-none border rounded-sm border-coffee-700 py-2 px-2 bg-transparent text-sm placeholder-coffee-100 mr-2" placeholder="MM/YY">
+            </div>
+
+            <!-- Start Date -->
+            <div>
+                <label class="text-sm mb-2" for="coupon[startDate]">Start date</label>
+                <div class="col-span-4 p-2 border rounded-s border-coffee-700 text-cappucino-700 relative">
+                    <input name="coupon[startDate]" type="datetime-local" class="absolute w-full opacity-0">
+                    <span data-type="date-time" class="relative text-coffee-400 cursor-default">dd/mm/yyyy</span>
+                    <span class="absolute right-2 pointer-events-none">
+                        <i class="far fa-calendar"></i>
+                    </span>
+                </div>
+            </div>
+            <!-- Expiry Date -->
+            <div>
+                <label class="text-sm mb-2" for="card[expiryDate]">Expiry date</label>
+                <div class="col-span-4 p-2 border rounded-s border-coffee-700 text-cappucino-700 relative">
+                    <input name="card[expiryDate]" type="datetime-local" class="absolute w-full opacity-0">
+                    <span data-type="date-time" class="relative text-coffee-400 cursor-default">dd/mm/yyyy</span>
+                    <span class="absolute right-2 pointer-events-none">
+                        <i class="far fa-calendar"></i>
+                    </span>
+                </div>
+            </div>
+            
+
+            <!-- Products -->
+            <div>
+                <div class="flex items-center mb-2">
+                    <span class="mr-4">Apply to:</span>
+                    <span class="text-sm mr-2">All products</span>
+                    <input data-inverted="true" data-action="slide" data-list-type="applied-product" type="checkbox" checked>
+                </div>
+                
+                <div class="relative w-full h-full hidden" data-action="slide-data">
+                    <div>
+                        <div>
+                            <input name="coupon[product][danceh]" type="checkbox" checked>
+                            <span class="text-sm">Danceh</span>
+                        </div>
+                        <div>
+                            <input name="coupon[product][picollo]" type="checkbox" checked>
+                            <span class="text-sm">Picollo</span>
+                        </div>
+                        <div>
+                            <input name="coupon[product][planalto]" type="checkbox" checked>
+                            <span class="text-sm">Planalto</span>
+                        </div>
+                        <div>
+                            <input name="coupon[product][greenEspresso]" type="checkbox" checked>
+                            <span class="text-sm">Green Espresso</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <!-- Total discount -->
+            <div>
+                <label class="text-sm mb-2" for="coupon[discountRate]">Total Discount</label>
+                <div class="w-full outline-none flex border rounded-sm border-coffee-700 py-2 px-2 bg-transparent text-sm placeholder-coffee-100 mr-2">
+                    <input type="text" id="coupon[discountRate]" name="coupon[discountRate]" class="w-full mr-2 bg-transparent outline-none placeholder-coffee-100" placeholder="XX" />
+                    <span>%</span>
+                </div>
+                
+
+                <div class="flex items-center my-2">
+                    <input type="checkbox" data-action="slide">
+                    <span class="text-sm ml-2">
+                        <label for="coupon[maxDiscount]">Max Discount</label>
+                    </span>
+                </div>
+            
+                <div class="w-full outline-none border rounded-sm border-coffee-700 py-2 px-2 bg-transparent text-sm placeholder-coffee-100 mr-2 hidden" data-action="slide-data">
+                    <div class="flex items-center">
+                        <span>Rp.</span>
+                        <input type="text" id="coupon[maxDiscount]" name="coupon[maxDiscount]" class="w-full ml-2 bg-transparent outline-none placeholder-coffee-100" placeholder="MM/YY" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- Max user -->
+            <div>
+                <div class="flex items-center mb-2">
+                    <input type="checkbox" data-action="slide">
+                    <span class="text-sm ml-2"><label for="coupon[maxUser]">Max User</label></span>
+                </div>
+                <div class="w-full outline-none border rounded-sm border-coffee-700 py-2 px-2 bg-transparent text-sm placeholder-coffee-100 mr-2 hidden" data-action="slide-data">
+                    <div class="flex items-center">
+                        <input type="text" id="coupon[maxUser]" name="coupon[maxUser]" class="w-full ml-2 bg-transparent outline-none placeholder-coffee-100" placeholder="MM/YY" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+        <button class="bg-coffee-700 rounded-sm py-2 px-6 text-white pointer text-sm hover:bg-cappucino-700 hover:text-white transition duration-200 flex justify-center mt-16">Create coupon</button>
+    </div>  
+
+
+    
+    <section id="main-content" class="grid w-full min-h-screen relative" style="grid-template-columns: auto 1fr; grid-template-rows: auto 1fr;">
+        <div id="aside-overlay" class="absolute w-full h-full bg-black invisible opacity-0"></div>
+        <aside class="w-64 md:w-32 lg:w-64 h-full z-50 row-span-2 justify-start md:items-center lg:items-start absolute md:relative text-sand-900 px-8 pt-16 bg-cappucino-900 flex flex-col gap-y-16 transition-all duration-500  transform -translate-x-64 md:translate-x-0">
+            <span class="flex flex-row items-center text-white">
+                <img src="/public/images/Single Filled Beans.svg" class="pr-4 h-8 box-border" alt="logo" style="filter : invert(38%) sepia(100%) saturate(389%) hue-rotate(130deg) brightness(90%) contrast(92%)" />
+                <span class="inline md:hidden lg:inline font-serif text-xl">coffee roaster</span>          
+            </span>
+            <span class="flex gap-x-2 items-center cursor-pointer opacity-50 hover:opacity-100 transition duration-200">
+                <i class="far fa-calendar text-2xl inline"></i>
+                <span class="inline md:hidden lg:inline">Order Manager</span>
+            </span>
+            <span class="flex gap-x-2 items-center cursor-pointer opacity-50 hover:opacity-100 transition duration-200">
+                <i class="fa fa-history text-2xl inline"></i>
+                <span class="inline md:hidden lg:inline">History</span>
+            </span>
+            <span class="flex gap-x-2 items-center cursor-pointer opacity-50 hover:opacity-100 transition duration-200">
+                <i class="fas fa-book-open text-2xl inline"></i>
+                <span class="inline md:hidden lg:inline">Product Manager</span>
+            </span>
+            <span class="flex gap-x-2 items-center cursor-pointer opacity-50 hover:opacity-100 transition duration-200">
+                <i class="fas fa-sign-out-alt text-2xl inline"></i>
+                <span class="inline md:hidden lg:inline">Exit</span>
+            </span>
+        </aside>
+        <nav class="bg-cover relative col-span-2 md:col-span-1"style="background-image : url('/public/images/coffee\ shop.jpg')">
+            <div class="py-16 ml-4 md:ml-16 text-white relative z-10 font-serif flex items-center">
+                <i id="toggle-menu" class="fa fa-bars block md:hidden mr-4 cursor-pointer"></i>
+                <h1 class="text-2xl">ADMIN PANEL</h1>
+            </div>
+            <div class="bg-black opacity-20 w-full absolute top-0 bottom-0 z-0"></div>
+        </nav>
+        <section class="bg-sand-900 col-span-2 md:col-span-1 pb-16">
+            <div class="flex flex-row justify-between mt-20 mb-16 mx-4">
+                <h1 class="text-3xl text-coffee-700 font-serif">COUPON MANAGER</h1>
+                <button data-action="add-new-coupon" class="bg-coffee-700 rounded-sm py-1 px-4 text-white pointer text-sm hover:bg-cappucino-700 hover:text-white transition duration-200 flex justify-center items-center"><i class="fas fa-plus"></i><span class="ml-2 hidden sm:flex">Add new</span></button>
+            </div>
+            <div class="grid px-4 lg:px-4">
+                <div class="grid grid-cols-8 gap-x-5 mb-9 w-full text-cappucino-700">
+                    <div class="col-span-2">
+                        <span>Coupon Name</span>
+                    </div>
+                    <div class="col-span-2">
+                        <span>Code</span>
+                    </div>
+                    <div class="col-span-2">
+                        <span>Start Date</span>
+                    </div>
+                    <div class="col-span-1">
+                        <span>Usage</span>
+                    </div>
+                    <div class="col-span-1">
+                        <span>Action</span>
+                    </div>
+                </div>
+
+                <div class="w-full border border-l-0 border-t-0 border-r-0 border-coffee-100"></div>
+
+                <div data-type="coupon-card" class="grid grid-cols-8 gap-x-5 my-9 w-full items-start">
+                    <div class="col-span-2 text-cappucino-700 flex flex-col gap-y-4">
+                        <span>DISCOUNT 10%</span>
+                    </div>
+                    <div class="col-span-2 text-cappucino-700">
+                        <span>NOVDISC</span>
+                    </div>
+                    <div class="col-span-2 flex flex-col gap-y-5  gap-x-5md:flex-row text-cappucino-700">
+                        <span>
+                            Start Date
+                            <br>
+                            31-10-21 21:00
+                        </span>
+                        <span>
+                            End Date
+                            <br>
+                            31-10-21 21:00
+                        </span>
+                    </div>
+                    <div class="col-span-1 text-cappucino-700">
+                        <span>15000 Users</span>
+                    </div>
+                    <div class="col-span-1 flex flex-col xl:flex-row gap-x-4 gap-y-4">
+                        <button data-action="remove-coupon" class="bg-red-500 rounded-sm py-2 px-6 text-white pointer text-sm hover:bg-red-700 hover:text-white transition duration-200 flex justify-center"><i class="fa fa-times"></i></button>
+                        <button data-action="view-more" class="bg-coffee-700 rounded-sm py-2 px-6 text-white pointer text-sm hover:bg-cappucino-700 hover:text-white transition duration-200 flex justify-center"><i class="fas fa-eye"></i></button>
+                    </div>
+
+                    <div data-type="coupon-data" class="hidden">
+                        <div class="grid gap-y-2 mb-8">
+                            <h1 class="text-3xl font-serif text-coffee-700 mb-4">Coupon details</h1>
+                            <div class="grid grid-cols-2 gap-x-5 text-cappucino-700">
+                                <h4 class="col-span-1">Coupon name</h4>
+                                <h4 class="col-span-1" >September Discount</h4>
+                            </div>
+                            <div class="grid grid-cols-2 gap-x-5 text-cappucino-700">
+                                <h4 class="col-span-1">Coupon Code</h4>
+                                <h4 class="col-span-1" >SeptFest</h4>
+                            </div>
+                            <div class="grid grid-cols-2 gap-x-5 text-cappucino-700">
+                                <h4 class="col-span-1">Start Date</h4>
+                                <h4 class="col-span-1" >1 September 2021 00:00</h4>
+                            </div>
+                            <div class="grid grid-cols-2 gap-x-5 text-cappucino-700">
+                                <h4 class="col-span-1">End Date</h4>
+                                <h4 class="col-span-1" >30 September 2021 00:00</h4>
+                            </div>
+                            <div class="grid grid-cols-2 gap-x-5 text-cappucino-700">
+                                <h4 class="col-span-1">Applied to</h4>
+                                <div class="flex flex-col">
+                                    <h4 class="col-span-1" >- Green Espresso</h4>
+                                    <h4 class="col-span-1" >- Planalto</h4>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-2 gap-x-5 text-cappucino-700">
+                                <h4 class="col-span-1">Max User</h4>
+                                <h4 class="col-span-1" >-</h4>
+                            </div>
+                            <div class="grid grid-cols-2 gap-x-5 text-cappucino-700">
+                                <h4 class="col-span-1">Total Discount</h4>
+                                <div class="flex flex-col">
+                                    <h4 class="col-span-1" >10%</h4>
+                                    <h4 class="col-span-1" >Max discount : Rp. 25.0000,00</h4>
+                                </div>
+                            </div>
+    
+                            
+                        </div>
+                        
+                        <div class="grid gap-y-2 mb-16">
+                            <h1 class="text-3xl font-serif text-coffee-700 mb-4">Coupon Status</h1>
+                            <div class="grid grid-cols-2 gap-x-5 text-cappucino-700">
+                                <h4 class="col-span-1">Status</h4>
+                                <div class="col-span-1">
+                                    <span class="bg-green-500 inline p-1 text-white rounded-sm text-sm">Active</span>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-2 gap-x-5 text-cappucino-700">
+                                <h4 class="col-span-1">Used</h4>
+                                <h4 class="col-span-1">15,000 User</h4>
+                            </div>
+                        </div>
+    
+                        <div>
+                            <button class="bg-red-500 hover:bg-red-700 rounded-sm py-2 px-6 text-white pointer text-sm  hover:text-white transition duration-200 flex justify-center w-full">Deactivate coupon</button>
+    
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w-full border border-l-0 border-t-0 border-r-0 border-coffee-100"></div>
+
+                <div data-type="coupon-card" class="grid grid-cols-8 gap-x-5 my-9 w-full items-start">
+                    <div class="col-span-2 text-cappucino-700 flex flex-col gap-y-4">
+                        <span>DISCOUNT 10%</span>
+                    </div>
+                    <div class="col-span-2 text-cappucino-700">
+                        <span>NOVDISC</span>
+                    </div>
+                    <div class="col-span-2 flex flex-col gap-y-5  gap-x-5md:flex-row text-cappucino-700">
+                        <span>
+                            Start Date
+                            <br>Ó
+                            31-10-21 21:00
+                        </span>
+                        <span>
+                            End Date
+                            <br>
+                            31-10-21 21:00
+                        </span>
+                    </div>
+                    <div class="col-span-1 text-cappucino-700">
+                        <span>15000 Users</span>
+                    </div>
+                    <div class="col-span-1 flex flex-col xl:flex-row gap-x-4 gap-y-4">
+                        <button data-action="remove-coupon" class="bg-red-500 rounded-sm py-2 px-6 text-white pointer text-sm hover:bg-red-700 hover:text-white transition duration-200 flex justify-center"><i class="fa fa-times"></i></button>
+                        <button data-action="view-more" class="bg-coffee-700 rounded-sm py-2 px-6 text-white pointer text-sm hover:bg-cappucino-700 hover:text-white transition duration-200 flex justify-center"><i class="fas fa-eye"></i></button>
+                    </div>
+
+                    <div data-type="coupon-data" class="hidden">
+                        <div class="grid gap-y-2 mb-8">
+                            <h1 class="text-3xl font-serif text-coffee-700 mb-4">Coupon details</h1>
+                            <div class="grid grid-cols-2 gap-x-5 text-cappucino-700">
+                                <h4 class="col-span-1">Coupon name</h4>
+                                <h4 class="col-span-1" >September Discount</h4>
+                            </div>
+                            <div class="grid grid-cols-2 gap-x-5 text-cappucino-700">
+                                <h4 class="col-span-1">Coupon Code</h4>
+                                <h4 class="col-span-1" >SeptFest</h4>
+                            </div>
+                            <div class="grid grid-cols-2 gap-x-5 text-cappucino-700">
+                                <h4 class="col-span-1">Start Date</h4>
+                                <h4 class="col-span-1" >1 September 2021 00:00</h4>
+                            </div>
+                            <div class="grid grid-cols-2 gap-x-5 text-cappucino-700">
+                                <h4 class="col-span-1">End Date</h4>
+                                <h4 class="col-span-1" >30 September 2021 00:00</h4>
+                            </div>
+                            <div class="grid grid-cols-2 gap-x-5 text-cappucino-700">
+                                <h4 class="col-span-1">Applied to</h4>
+                                <div class="flex flex-col">
+                                    <h4 class="col-span-1" >- Green Espresso</h4>
+                                    <h4 class="col-span-1" >- Planalto</h4>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-2 gap-x-5 text-cappucino-700">
+                                <h4 class="col-span-1">Max User</h4>
+                                <h4 class="col-span-1" >-</h4>
+                            </div>
+                            <div class="grid grid-cols-2 gap-x-5 text-cappucino-700">
+                                <h4 class="col-span-1">Total Discount</h4>
+                                <div class="flex flex-col">
+                                    <h4 class="col-span-1" >10%</h4>
+                                    <h4 class="col-span-1" >Max discount : Rp. 25.0000,00</h4>
+                                </div>
+                            </div>
+    
+                            
+                        </div>
+                        
+                        <div class="grid gap-y-2 mb-16">
+                            <h1 class="text-3xl font-serif text-coffee-700 mb-4">Coupon Status</h1>
+                            <div class="grid grid-cols-2 gap-x-5 text-cappucino-700">
+                                <h4 class="col-span-1">Status</h4>
+                                <div class="col-span-1">
+                                    <span class="bg-green-500 inline p-1 text-white rounded-sm text-sm">Active</span>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-2 gap-x-5 text-cappucino-700">
+                                <h4 class="col-span-1">Used</h4>
+                                <h4 class="col-span-1">15,000 User</h4>
+                            </div>
+                        </div>
+    
+                        <div>
+                            <button class="bg-red-500 hover:bg-red-700 rounded-sm py-2 px-6 text-white pointer text-sm  hover:text-white transition duration-200 flex justify-center w-full">Deactivate coupon</button>
+    
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w-full border border-l-0 border-t-0 border-r-0 border-coffee-100"></div>
+
+                <div data-type="coupon-card" class="grid grid-cols-8 gap-x-5 my-9 w-full items-start">
+                    <div class="col-span-2 text-cappucino-700 flex flex-col gap-y-4">
+                        <span>DISCOUNT 10%</span>
+                    </div>
+                    <div class="col-span-2 text-cappucino-700">
+                        <span>NOVDISC</span>
+                    </div>
+                    <div class="col-span-2 flex flex-col gap-y-5  gap-x-5md:flex-row text-cappucino-700">
+                        <span>
+                            Start Date
+                            <br>
+                            31-10-21 21:00
+                        </span>
+                        <span>
+                            End Date
+                            <br>
+                            31-10-21 21:00
+                        </span>
+                    </div>
+                    <div class="col-span-1 text-cappucino-700">
+                        <span>15000 Users</span>
+                    </div>
+                    <div class="col-span-1 flex flex-col xl:flex-row gap-x-4 gap-y-4">
+                        <button data-action="remove-coupon" class="bg-red-500 rounded-sm py-2 px-6 text-white pointer text-sm hover:bg-red-700 hover:text-white transition duration-200 flex justify-center"><i class="fa fa-times"></i></button>
+                        <button data-action="view-more" class="bg-coffee-700 rounded-sm py-2 px-6 text-white pointer text-sm hover:bg-cappucino-700 hover:text-white transition duration-200 flex justify-center"><i class="fas fa-eye"></i></button>
+                    </div>
+
+                    <div data-type="coupon-data" class="hidden">
+                        <div class="grid gap-y-2 mb-8">
+                            <h1 class="text-3xl font-serif text-coffee-700 mb-4">Coupon details</h1>
+                            <div class="grid grid-cols-2 gap-x-5 text-cappucino-700">
+                                <h4 class="col-span-1">Coupon name</h4>
+                                <h4 class="col-span-1" >September Discount</h4>
+                            </div>
+                            <div class="grid grid-cols-2 gap-x-5 text-cappucino-700">
+                                <h4 class="col-span-1">Coupon Code</h4>
+                                <h4 class="col-span-1" >SeptFest</h4>
+                            </div>
+                            <div class="grid grid-cols-2 gap-x-5 text-cappucino-700">
+                                <h4 class="col-span-1">Start Date</h4>
+                                <h4 class="col-span-1" >1 September 2021 00:00</h4>
+                            </div>
+                            <div class="grid grid-cols-2 gap-x-5 text-cappucino-700">
+                                <h4 class="col-span-1">End Date</h4>
+                                <h4 class="col-span-1" >30 September 2021 00:00</h4>
+                            </div>
+                            <div class="grid grid-cols-2 gap-x-5 text-cappucino-700">
+                                <h4 class="col-span-1">Applied to</h4>
+                                <div class="flex flex-col">
+                                    <h4 class="col-span-1" >- Green Espresso</h4>
+                                    <h4 class="col-span-1" >- Planalto</h4>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-2 gap-x-5 text-cappucino-700">
+                                <h4 class="col-span-1">Max User</h4>
+                                <h4 class="col-span-1" \\>-</h4>
+                            </div>
+                            <div class="grid grid-cols-2 gap-x-5 text-cappucino-700">
+                                <h4 class="col-span-1">Total Discount</h4>
+                                <div class="flex flex-col">
+                                    <h4 class="col-span-1" >10%</h4>
+                                    <h4 class="col-span-1" >Max discount : Rp. 25.0000,00</h4>
+                                </div>
+                            </div>
+    
+                            
+                        </div>
+                        
+                        <div class="grid gap-y-2 mb-16">
+                            <h1 class="text-3xl font-serif text-coffee-700 mb-4">Coupon Status</h1>
+                            <div class="grid grid-cols-2 gap-x-5 text-cappucino-700">
+                                <h4 class="col-span-1">Status</h4>
+                                <div class="col-span-1">
+                                    <span class="bg-green-500 inline p-1 text-white rounded-sm text-sm">Active</span>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-2 gap-x-5 text-cappucino-700">
+                                <h4 class="col-span-1">Used</h4>
+                                <h4 class="col-span-1">15,000 User</h4>
+                            </div>
+                        </div>
+    
+                        <div>
+                            <button class="bg-red-500 hover:bg-red-700 rounded-sm py-2 px-6 text-white pointer text-sm  hover:text-white transition duration-200 flex justify-center w-full">Deactivate coupon</button>
+    
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w-full border border-l-0 border-t-0 border-r-0 border-coffee-100"></div>
+
+
+            </div>
+        </section>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        var selectedOrder = [];
+
+        $("*[data-action='view-more']").click(function(){
+            const couponCard = $(this).parents("*[data-type=coupon-card]");
+            const couponData = $(couponCard).find("*[data-type=coupon-data]").clone();
+            couponData.removeClass("hidden");
+            $("#modal-content").append(couponData);
+            $("#modal").removeClass("invisible opacity-0").addClass("visible opacity-100");
+            const top = window.scrollY;
+            console.log(top);
+            $("#main-content").css("top", `-${top}px`);
+            $("#main-content").removeClass("relative").addClass("fixed");
+            window.scrollTo(0,0);
+        })
+
+        $("*[data-action='add-new-coupon']").click(function () {
+            const couponModal = $("#coupon-modal").clone();
+            couponModal.removeClass("hidden");
+            couponModal.attr("id","");
+            $("#modal-content").append(couponModal);
+            $("#modal").removeClass("invisible opacity-0").addClass("visible opacity-100");
+            const top = window.scrollY;
+            console.log(top);
+            $("#main-content").css("top", `-${top}px`);
+            $("#main-content").removeClass("relative").addClass("fixed");
+        })
+
+
+        $("#close-modal").click(function () {
+            console.log("closing");
+            $("#modal").addClass("invisible opacity-0").removeClass("visible opacity-100");
+            setTimeout(function (){
+                $("#modal").addClass("invisible opacity-0").removeClass("visible opacity-100");
+            }, 200);
+            setTimeout(function () {
+                $("#modal-content").children().eq(1).remove();
+                const top = $("#main-content").position().top;
+                $("#main-content").removeClass("fixed").addClass("relative");
+                $("#main-content").css("top", "0px");
+            window.scrollTo(0, -1*top);
+            }, 400);
+
+        })
+
+        $(document).on("click", "*[data-action='slide']", function() {
+            const inverted = ($(this).attr("data-inverted") == "true");
+            const checked = !$(this).prop("checked");
+            if ( ! ((inverted && !checked) || (!inverted && checked))  ) { 
+                $(this).parent().siblings("*[data-action='slide-data']").slideDown();
+            } else {
+
+                $(this).parent().siblings("*[data-action='slide-data']").slideUp();
+                
+                if ($(this).attr("data-list-type") == "applied-product") {
+                    const checkbox = $(this).siblings("*[data-action='slide-data']").find("input[type='checkbox']");
+                    checkbox.each(function () {
+                        $(this).prop("checked", true);
+                    })
+                }
+            }
+        })
+
+        $("#alert button").click(function () {
+            const button = $(this);
+
+            setTimeout(function (){
+                    $("#alert").addClass("invisible opacity-0").removeClass("visible opacity-100");
+                }, 200);
+                setTimeout(function () {
+                    const top = $("#main-content").position().top;
+                    $("#main-content").removeClass("fixed").addClass("relative");
+                    $("#main-content").css("top", "0px");
+                window.scrollTo(0, -1*top);
+                }, 400);
+
+            if ($(this).attr("data-action") == "continue") {
+                const [orderCard, line] = selectedOrder;
+                selectedOrder = [];
+                orderCard.slideUp(function () {
+                    $(this).remove();
+                    $(line).remove();
+                })
+            } 
+        })
+
+
+        $("*[data-action=remove-coupon]").click(function () {
+            selectedOrder.push($(this).parents("*[data-type=coupon-card]"));
+            selectedOrder.push($(this).parents("*[data-type=coupon-card]").next());
+
+            $("#alert").removeClass("invisible opacity-0").addClass("visible opacity-100");
+            const top = window.scrollY;
+            $("#main-content").css("top", `-${top}px`);
+            $("#main-content").removeClass("relative").addClass("fixed");
+        })
+
+        $("#toggle-menu").click(function () {
+            $("aside").css({transform : "translateX(0px)"});
+            $("#aside-overlay").removeClass("invisible").addClass("opacity-10");
+        })
+
+        $("#aside-overlay").click(function () {
+            $("aside").css({transform : `translateX(${-64*4}px)`});
+            $("#aside-overlay").removeClass("opacity-10").addClass("invisible");
+
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Domine:wght@400;500;600;700&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+
+    <script src="https://kit.fontawesome.com/be6263c01e.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="/public/stylesheets/style.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="modal" class="absolute z-20 flex w-full invisible opacity-0 justify-center transition-all">
+        <!-- Overlay -->
+        <div class="w-full h-full min-h-screen bg-black opacity-20 absolute z-30"></div>
+        <!-- Modal content -->
+        <div id="modal-content" class="bg-sand-900 rounded-sm mx-8 my-8 md:mx-16 shadow px-6 pb-16 pt-8 z-40 grid gap-y-2 break-words">
+            <div class="flex flex-col cursor-pointer">
+                <i id="close-modal" class="fa fa-times"></i>
+                
+            </div>
+        </div>
+    </div>
+    
+    <section id="main-content" class="relative w-full grid" style="grid-template-columns: auto 1fr; grid-template-rows: auto 1fr;">
+        <div id="aside-overlay" class="absolute w-full h-full z-20 bg-black invisible opacity-0"></div>
+        <aside class="w-64 md:w-32 lg:w-64 h-full z-50 row-span-2 justify-start md:items-center lg:items-start fixed md:relative text-sand-900 px-8 pt-16 bg-cappucino-900 flex flex-col gap-y-16 transition-all duration-500  transform -translate-x-64 md:translate-x-0">
+            <span class="flex flex-row items-center text-white">
+                <img src="/public/images/Single Filled Beans.svg" class="pr-4 h-8 box-border" alt="logo" style="filter : invert(38%) sepia(100%) saturate(389%) hue-rotate(130deg) brightness(90%) contrast(92%)" />
+                <span class="inline md:hidden lg:inline font-serif text-xl">coffee roaster</span>          
+            </span>
+            <span class="flex gap-x-2 items-center cursor-pointer opacity-50 hover:opacity-100 transition duration-200">
+                <i class="far fa-calendar text-2xl inline"></i>
+                <span class="inline md:hidden lg:inline">Order Manager</span>
+            </span>
+            <span class="flex gap-x-2 items-center cursor-pointer opacity-50 hover:opacity-100 transition duration-200">
+                <i class="fa fa-history text-2xl inline"></i>
+                <span class="inline md:hidden lg:inline">History</span>
+            </span>
+            <span class="flex gap-x-2 items-center cursor-pointer opacity-50 hover:opacity-100 transition duration-200">
+                <i class="fas fa-book-open text-2xl inline"></i>
+                <span class="inline md:hidden lg:inline">Product Manager</span>
+            </span>
+            <span class="flex gap-x-2 items-center cursor-pointer opacity-50 hover:opacity-100 transition duration-200">
+                <i class="fas fa-sign-out-alt text-2xl inline"></i>
+                <span class="inline md:hidden lg:inline">Exit</span>
+            </span>
+        </aside>
+        
+        <nav class="bg-cover relative col-span-2 md:col-span-1"style="background-image : url('/public/images/coffee\ shop.jpg')">
+            <div class="py-16 ml-4 md:ml-16 text-white relative z-10 font-serif flex items-center">
+                <i id="toggle-menu" class="fa fa-bars block md:hidden mr-4 cursor-pointer"></i>
+                <h1 class="text-2xl">ADMIN PANEL</h1>
+            </div>
+            <div class="bg-black opacity-20 w-full absolute top-0 bottom-0 z-0"></div>
+        </nav>
+
+        <section class="bg-sand-900 col-span-2 md:col-span-1 pb-16">
+            <h1 class="text-3xl text-coffee-700 font-serif mt-20 mb-16 ml-4">PRODUCT MANAGER</h1>
+            <div class="grid px-6 lg:px-12">
+                <div class="grid grid-cols-6 md:grid-cols-7 gap-x-5 mb-9 w-full text-cappucino-700">
+                    <div class="col-span-4 md:col-span-3">
+                        <span>Product</span>
+                    </div>
+                    <div class="col-span-1 hidden md:block"></div>
+                    <div class="col-span-1">
+                        <span>Price</span>
+                    </div>
+                    <div class="col-span-1">
+                        <span>Action</span>
+                    </div>
+                </div>
+
+                <div class="w-full border border-l-0 border-t-0 border-r-0 border-coffee-100"></div>
+
+
+            
+                <div data-type="product-card" class="grid md:grid-cols-7 grid-cols-6 gap-x-5 my-9 w-full items-center">
+                    <div class="col-span-4 md:col-span-3 flex flex-row items-center">
+                        <img src="/public/images/Danceh.png" alt="" class=""style="width: 100px;">
+                        <div class="flex flex-col min-w-0">
+                            <span class="text-cappucino-900">Danceh</span>
+                            <span class="mt-2 text-sm leading-5 text-cappucino-700 opacity-50" >Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi minima ducimus...</span>
+                        </div>
+                    </div>
+                    <div class="col-span-1 hidden md:block"></div>
+                    <div class="col-span-1 text-cappucino-700">
+                        <span>$ 41.00</span>
+                    </div>
+
+                    <div class="col-span-1 flex flex-col md:flex-row gap-x-4 gap-y-4">
+                        <button class="bg-coffee-700 rounded-sm py-2 px-6 text-white pointer text-sm hover:bg-cappucino-700 hover:text-white transition duration-200 flex justify-center"><i class="fas fa-edit"></i></button>
+                        <button data-action="view-more" class="bg-coffee-700 rounded-sm py-2 px-6 text-white pointer text-sm hover:bg-cappucino-700 hover:text-white transition duration-200 flex justify-center"><i class="fa fa-eye"></i></button>
+                    </div>
+
+                    <div data-type="product-data" class="hidden flex-col">
+                        <img src="/public/images/Danceh.png" alt="" class="w-1/2 self-center"style="">
+                        <span class="text-cappucino-900">Danceh</span>
+                        <span class="mt-2 text-sm leading-5 text-cappucino-700 opacity-50" style="max-width: 50ch;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus laborum atque voluptas officia? Id enim nobis totam debitis dolore, sit maiores animi, cumque nihil facere cupiditate eligendi eos labore iusto.</span>
+
+
+    
+                        <div class="grid grid-cols-2 mt-8">
+                            <span class="col-span-1 text-cappucino-900">
+                                Price
+                            </span>
+                            <span class="col-span-1 text-cappucino-900">
+                                Sold Quantity
+                            </span>
+                            
+                            <span class="col-span-1 text-cappucino-700">
+                                $ 49.00
+                            </span>
+                            <span class="col-span-1 text-cappucino-700">
+                                20
+                            </span>
+                        </div>
+    
+                    </div>
+                </div>
+
+                <div class="w-full border border-l-0 border-t-0 border-r-0 border-coffee-100"></div>
+            
+                <div data-type="product-card" class="grid md:grid-cols-7 grid-cols-6 gap-x-5 my-9 w-full items-center">
+                    <div class="col-span-4 md:col-span-3 flex flex-row items-center">
+                        <img src="/public/images/Picollo.png" alt="" class=""style="width: 100px;">
+                        <div class="flex flex-col min-w-0">
+                            <span class="text-cappucino-900">Picollo</span>
+                            <span class="mt-2 text-sm leading-5 text-cappucino-700 opacity-50" >Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi minima ducimus...</span>
+                        </div>
+                    </div>
+                    <div class="col-span-1 hidden md:block"></div>
+                    <div class="col-span-1 text-cappucino-700">
+                        <span>$ 41.00</span>
+                    </div>
+
+                    <div class="col-span-1 flex flex-col md:flex-row gap-x-4 gap-y-4">
+                        <button class="bg-coffee-700 rounded-sm py-2 px-6 text-white pointer text-sm hover:bg-cappucino-700 hover:text-white transition duration-200 flex justify-center"><i class="fas fa-edit"></i></button>
+                        <button data-action="view-more" class="bg-coffee-700 rounded-sm py-2 px-6 text-white pointer text-sm hover:bg-cappucino-700 hover:text-white transition duration-200 flex justify-center"><i class="fa fa-eye"></i></button>
+                    </div>
+
+                    <div data-type="product-data" class="hidden flex-col">
+                        <img src="/public/images/Picollo.png" alt="" class="w-1/2 self-center"style="">
+                        <span class="text-cappucino-900">Picollo</span>
+                        <span class="mt-2 text-sm leading-5 text-cappucino-700 opacity-50" style="max-width: 50ch;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus laborum atque voluptas officia? Id enim nobis totam debitis dolore, sit maiores animi, cumque nihil facere cupiditate eligendi eos labore iusto.</span>
+
+
+    
+                        <div class="grid grid-cols-2 mt-8">
+                            <span class="col-span-1 text-cappucino-900">
+                                Price
+                            </span>
+                            <span class="col-span-1 text-cappucino-900">
+                                Sold Quantity
+                            </span>
+                            
+                            <span class="col-span-1 text-cappucino-700">
+                                $ 41.00
+                            </span>
+                            <span class="col-span-1 text-cappucino-700">
+                                20
+                            </span>
+                        </div>
+    
+                    </div>
+
+
+                </div>
+
+                <div class="w-full border border-l-0 border-t-0 border-r-0 border-coffee-100"></div>
+
+
+                <div data-type="product-card" class="grid md:grid-cols-7 grid-cols-6 gap-x-5 my-9 w-full items-center">
+                    <div class="col-span-4 md:col-span-3 flex flex-row items-center">
+                        <img src="/public/images/GreenEspresso.png" alt="" class=""style="width: 100px;">
+                        <div class="flex flex-col min-w-0">
+                            <span class="text-cappucino-900">Green espresso</span>
+                            <span class="mt-2 text-sm leading-5 text-cappucino-700 opacity-50" >Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi minima ducimus...</span>
+                        </div>
+                    </div>
+                    <div class="col-span-1 hidden md:block"></div>
+                    <div class="col-span-1 text-cappucino-700">
+                        <span>$ 41.00</span>
+                    </div>
+
+                    <div class="col-span-1 flex flex-col md:flex-row gap-x-4 gap-y-4">
+                        <button class="bg-coffee-700 rounded-sm py-2 px-6 text-white pointer text-sm hover:bg-cappucino-700 hover:text-white transition duration-200 flex justify-center"><i class="fas fa-edit"></i></button>
+                        <button data-action="view-more" class="bg-coffee-700 rounded-sm py-2 px-6 text-white pointer text-sm hover:bg-cappucino-700 hover:text-white transition duration-200 flex justify-center"><i class="fa fa-eye"></i></button>
+                    </div>
+
+                    <div data-type="product-data" class="hidden flex-col">
+                        <img src="/public/images/GreenEspresso.png" alt="" class="w-1/2 self-center"style="">
+                        <span class="text-cappucino-900">Green Espresso</span>
+                        <span class="mt-2 text-sm leading-5 text-cappucino-700 opacity-50" style="max-width: 50ch;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus laborum atque voluptas officia? Id enim nobis totam debitis dolore, sit maiores animi, cumque nihil facere cupiditate eligendi eos labore iusto.</span>
+
+
+    
+                        <div class="grid grid-cols-2 mt-8">
+                            <span class="col-span-1 text-cappucino-900">
+                                Price
+                            </span>
+                            <span class="col-span-1 text-cappucino-900">
+                                Sold Quantity
+                            </span>
+                            
+                            <span class="col-span-1 text-cappucino-700">
+                                $ 41.00
+                            </span>
+                            <span class="col-span-1 text-cappucino-700">
+                                20
+                            </span>
+                        </div>
+    
+                    </div>
+                </div>
+
+                <div class="w-full border border-l-0 border-t-0 border-r-0 border-coffee-100"></div>
+            
+                <div data-type="product-card" class="grid md:grid-cols-7 grid-cols-6 gap-x-5 my-9 w-full items-center">
+                    <div class="col-span-4 md:col-span-3 flex flex-row items-center">
+                        <img src="/public/images/Planalto.png" alt="" class=""style="width: 100px;">
+                        <div class="flex flex-col min-w-0">
+                            <span class="text-cappucino-900">Planalto</span>
+                            <span class="mt-2 text-sm leading-5 text-cappucino-700 opacity-50" >Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi minima ducimus...</span>
+                        </div>
+                    </div>
+                    <div class="col-span-1 hidden md:block"></div>
+                    <div class="col-span-1 text-cappucino-700">
+                        <span>$ 41.00</span>
+                    </div>
+
+                    <div class="col-span-1 flex flex-col md:flex-row gap-x-4 gap-y-4">
+                        <button class="bg-coffee-700 rounded-sm py-2 px-6 text-white pointer text-sm hover:bg-cappucino-700 hover:text-white transition duration-200 flex justify-center"><i class="fas fa-edit"></i></button>
+                        <button data-action="view-more" class="bg-coffee-700 rounded-sm py-2 px-6 text-white pointer text-sm hover:bg-cappucino-700 hover:text-white transition duration-200 flex justify-center"><i class="fa fa-eye"></i></button>
+                    </div>
+
+                    <div data-type="product-data" class="hidden flex-col">
+                        <img src="/public/images/Planalto.png" alt="" class="w-1/2 self-center"style="">
+                        <span class="text-cappucino-900">Planalto</span>
+                        <span class="mt-2 text-sm leading-5 text-cappucino-700 opacity-50" style="max-width: 50ch;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus laborum atque voluptas officia? Id enim nobis totam debitis dolore, sit maiores animi, cumque nihil facere cupiditate eligendi eos labore iusto.</span>
+
+    
+                        <div class="grid grid-cols-2 mt-8">
+                            <span class="col-span-1 text-cappucino-900">
+                                Price
+                            </span>
+                            <span class="col-span-1 text-cappucino-900">
+                                Sold Quantity
+                            </span>
+                            
+                            <span class="col-span-1 text-cappucino-700">
+                                $ 41.00
+                            </span>
+                            <span class="col-span-1 text-cappucino-700">
+                                20
+                            </span>
+                        </div>
+    
+                    </div>
+                </div>
+            
+                <div class="w-full border border-l-0 border-t-0 border-r-0 border-coffee-100"></div>
+
+            </div>
+
+        
+
+
+            </div>
+        </section>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+
+    <script>
+        $("*[data-action='view-more']").click(function(){
+            const productCard = $(this).parents("*[data-type=product-card]");
+            const customerData = $(productCard).find("*[data-type=product-data]").clone();
+            customerData.removeClass("hidden").addClass("flex");
+            $("#modal-content").append(customerData);
+            $("#modal").removeClass("invisible opacity-0").addClass("visible opacity-100");
+            const top = window.scrollY;
+            $("#main-content").css("top", `-${top}px`);
+            $("#main-content").removeClass("relative").addClass("fixed");
+            window.scrollTo(0,0);
+        })
+        
+
+        $("#close-modal").click(function () {
+            
+            $("#modal").addClass("invisible opacity-0").removeClass("visible opacity-100");
+            setTimeout(function (){
+                $("#modal").addClass("invisible opacity-0").removeClass("visible opacity-100");
+            }, 200);
+            setTimeout(function () {
+                $("#modal-content *[data-type=product-data]").remove();
+                const top = $("#main-content").position().top;
+                $("#main-content").removeClass("fixed").addClass("relative");
+                $("#main-content").css("top", "0px");
+            window.scrollTo(0, -1*top);
+            }, 400);
+
+        })
+
+        $("#toggle-menu").click(function () {
+            $("aside").removeClass("-translate-x-64");
+            $("#aside-overlay").removeClass("invisible").addClass("opacity-10");
+        })
+
+        $("#aside-overlay").click(function () {
+            $("aside").addClass("-translate-x-64");
+            $("#aside-overlay").removeClass("opacity-10").addClass("invisible");
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Domine:wght@400;500;600;700&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+
+    <script src="https://kit.fontawesome.com/be6263c01e.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="/public/stylesheets/style.css">
+    <title>Document</title>
+</head>
+<body>
+    
+    <section id="main-content" class="relative w-full grid min-h-screen" style="grid-template-columns: auto 1fr; grid-template-rows: auto 1fr;">
+        <div id="aside-overlay" class="absolute w-full h-full z-20 bg-black invisible opacity-0"></div>
+        <aside class="w-64 md:w-32 lg:w-64 h-full z-50 row-span-2 justify-start md:items-center lg:items-start fixed md:relative text-sand-900 px-8 pt-16 bg-cappucino-900 flex flex-col gap-y-16 transition-all duration-500  transform -translate-x-64 md:translate-x-0">
+            <span class="flex flex-row items-center text-white">
+                <img src="/public/images/Single Filled Beans.svg" class="pr-4 h-8 box-border" alt="logo" style="filter : invert(38%) sepia(100%) saturate(389%) hue-rotate(130deg) brightness(90%) contrast(92%)" />
+                <span class="inline md:hidden lg:inline font-serif text-xl">coffee roaster</span>          
+            </span>
+            <span class="flex gap-x-2 items-center cursor-pointer opacity-50 hover:opacity-100 transition duration-200">
+                <i class="far fa-calendar text-2xl inline"></i>
+                <span class="inline md:hidden lg:inline">Order Manager</span>
+            </span>
+            <span class="flex gap-x-2 items-center cursor-pointer opacity-50 hover:opacity-100 transition duration-200">
+                <i class="fa fa-history text-2xl inline"></i>
+                <span class="inline md:hidden lg:inline">History</span>
+            </span>
+            <span class="flex gap-x-2 items-center cursor-pointer opacity-50 hover:opacity-100 transition duration-200">
+                <i class="fas fa-book-open text-2xl inline"></i>
+                <span class="inline md:hidden lg:inline">Product Manager</span>
+            </span>
+            <span class="flex gap-x-2 items-center cursor-pointer opacity-50 hover:opacity-100 transition duration-200">
+                <i class="fas fa-sign-out-alt text-2xl inline"></i>
+                <span class="inline md:hidden lg:inline">Exit</span>
+            </span>
+        </aside>
+        <nav class="bg-cover relative col-span-2 md:col-span-1"style="background-image : url('/public/images/coffee\ shop.jpg')">
+            <div class="py-16 ml-4 md:ml-16 text-white relative z-10 font-serif flex items-center">
+                <i id="toggle-menu" class="fa fa-bars block md:hidden mr-4 cursor-pointer"></i>
+                <h1 class="text-2xl">ADMIN PANEL</h1>
+            </div>
+            <div class="bg-black opacity-20 w-full absolute top-0 bottom-0 z-0"></div>
+        </nav>
+        <section class="bg-sand-900 col-span-2 md:col-span-1 ">
+            <h1 class="text-3xl text-coffee-700 font-serif mt-20 mb-16 ml-4 lg:ml-12">EDIT PRODUCT</h1>
+            <div class="grid px-6 lg:px-12 mb-16">
+                
+                <div class="flex flex-col xl:flex-row">
+                    <div class="relative w-full h-96 group mb-8 flex items-center justify-center xl:max-w-md xl:mr-8 xl:mb-0">
+                        <div class="absolute opacity-0 group-hover:opacity-100 flex items-center justify-center w-full h-full transition-all z-40">
+                            <label for="file-input" class="outline-none border rounded-sm border-white py-2 px-6 bg-transparent text-sm text-white hover:bg-white hover:text-cappucino-700 transition-all">Change file</label>
+                            <input id="file-input" type="file" onchange="readURL(this);" class="absolute invisible"></input>
+                        </div>
+                        <div class="absolute group-hover:bg-black w-full h-full opacity-10 z-30"></div>
+                        <img id="product-img" src="/public/images/Danceh.png" alt="" class="w-1/2 self-center relative z-20">
+                        <div class="absolute w-full h-full bg-black opacity-5 z-10"></div>
+                    </div>
+                    <div class="xl:w-2/5">
+                        <div class="mb-5">
+                            <label class="text-sm mb-2" for="details[lastName]">Last name</label>
+                            <input type="text" name="details[lastName]" class="w-full outline-none border rounded-sm border-coffee-700 py-2 px-2 bg-transparent text-sm placeholder-coffee-100 mr-2" placeholder="Last name" value="Danceh">
+                        </div>
+                        <div class="mb-5">
+                            <label class="text-sm mb-2" for="details[lastName]">Last name</label>
+                            <textarea cols="30" rows="10" type="text" name="details[lastName]" class="w-full outline-none border rounded-sm border-coffee-700 py-2 px-2 bg-transparent text-sm placeholder-coffee-100 mr-2" placeholder="Last name" value="Danceh">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus laborum atque voluptas officia? Id enim nobis totam debitis dolore, sit maiores animi, cumque nihil facere cupiditate eligendi eos labore iusto.</textarea>
+                        </div>
+    
+                        <div class="mb-16">
+                            <label class="text-sm mb-2" for="details[lastName]">Last name</label>
+                            <div class="w-full outline-none border rounded-sm border-coffee-700 py-2 px-2 bg-transparent text-sm placeholder-coffee-100 mr-2">
+                                <span>$</span>
+                                <input type="text" class="bg-transparent border-none outline-none" value="40.00">
+                            </div>
+                        </div>
+    
+                        <div class="flex self-end">
+                            <button class="bg-coffee-700 rounded-sm py-2 px-6 text-white pointer text-sm hover:bg-cappucino-700 hover:text-white transition duration-200 flex justify-center">Update</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        
+        $("#toggle-menu").click(function () {
+            $("aside").removeClass("-translate-x-64");
+            $("#aside-overlay").removeClass("invisible").addClass("opacity-10");
+        })
+
+        $("#aside-overlay").click(function () {
+            $("aside").addClass("-translate-x-64");
+            $("#aside-overlay").removeClass("opacity-10").addClass("invisible");
+        })
+
+
+        function readURL (input) {
+            console.log(input);
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $("#product-img").attr("src", e.target.result)
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
+</body>
+</html>
